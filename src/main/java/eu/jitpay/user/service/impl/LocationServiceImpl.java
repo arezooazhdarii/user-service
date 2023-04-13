@@ -16,6 +16,7 @@ import org.springframework.data.domain.Pageable;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -69,8 +70,9 @@ public class LocationServiceImpl implements LocationService {
                     .locations(null)
                     .userId(userId).build();
 
-        List<Locations> locations = byCreatedOnBetween.getContent().stream()
-                .map(this::mapLocationEntityToDTO).toList();
+        List<Locations> locations = byCreatedOnBetween.getContent().stream().map(this::mapLocationEntityToDTO).collect(Collectors.toList());
+//        List<Locations> locations = byCreatedOnBetween.getContent().stream()
+//                .map(this::mapLocationEntityToDTO).toList;
         return LocationsResponse.builder()
                 .locations(locations)
                 .userId(userId).build();
