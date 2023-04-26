@@ -14,12 +14,12 @@ pipeline {
         }
         stage('test') {
             steps {
-                sh 'mvn test'
+                sh './mvnw test'
             }
         }
         stage('package') {
             steps {
-                sh 'mvn package'
+                sh './mvnw package'
             }
             post {
                 success {
