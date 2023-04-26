@@ -9,7 +9,7 @@ pipeline {
         }
         stage('compile') {
             steps {
-                sh 'mvn compile'
+                sh './mvnw compile'
             }
         }
         stage('test') {
