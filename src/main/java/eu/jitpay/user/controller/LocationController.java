@@ -25,14 +25,21 @@ public class LocationController {
      * @param userId - to get user latest location
      * @return - the user location information
      */
+//    @GetMapping("/locations/{id}")
+//    public ResponseEntity<Response<LocationResponse>> getLastLocation(@PathVariable("id") String userId,
+//                                                                      HttpServletRequest request) {
+//        LocationResponse location = locationService.getUserLastLocation(userId);
+//        return new ResponseEntity<>(new Response<LocationResponse>()
+//                .build()
+//                .setMessage(location)
+//                .setPath(request.getRequestURI()), HttpStatus.OK);
+//    }
+
     @GetMapping("/locations/{id}")
-    public ResponseEntity<Response<LocationResponse>> getLastLocation(@PathVariable("id") String userId,
+    public ResponseEntity<LocationResponse> getLastLocation(@PathVariable("id") String userId,
                                                                       HttpServletRequest request) {
         LocationResponse location = locationService.getUserLastLocation(userId);
-        return new ResponseEntity<>(new Response<LocationResponse>()
-                .build()
-                .setMessage(location)
-                .setPath(request.getRequestURI()), HttpStatus.OK);
+        return new ResponseEntity<>(location,HttpStatus.OK);
     }
 
     /**
