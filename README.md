@@ -82,4 +82,4 @@ To see database records and tables you can check [Adminer panel](http://localhos
 
 ## Documentation
 
-* [Swagger](http://localhost:8080/swagger-ui/index.html) - Documentation & Testing
+* [Swagger](http://localhost:8083/swagger-ui/index.html) - Documentation & Testing
