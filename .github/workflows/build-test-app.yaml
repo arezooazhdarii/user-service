@@ -1,0 +1,23 @@
+name: Java CI mvn
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: action/checkout@v2
+
+      - name: Set up JDK 11
+        uses: action/setup-java@v1
+        with:
+          java-version: 11
+          cache: 'maven'
+
+      - name: Build with maven
+        run: mvn clean install
